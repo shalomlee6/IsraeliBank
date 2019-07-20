@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shalomlee6/test.git"
+  },
+  "author": "shalom pinchas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shalomlee6/test/issues"
+  },
+  "homepage": "https://github.com/shalomlee6/test#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "xml2js": "^0.4.19"
+  }
+}
