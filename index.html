@@ -6,17 +6,33 @@
     <title>Israeli Bank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <script src="./js/main.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(() => {});
-    </script>
   </head>
   <body>
     <h1>Welcome To Israeli Bank System</h1>
     <hr />
-    <h2>Bank Name:</h2>
-    <input id="bankInput" type="text" size="20" />
-    <button id="submitBtn">Submit</button>
+
+    <form>
+      <h2>Bank Name:</h2>
+      <input
+        id="bankInput"
+        type="text"
+        size="20"
+        name="bank"
+        onkeyup="showHint(this.value)"
+      />
+      <button id="submitbtn" type="submit">Submit</button>
+    </form>
+
+    <script src="./js/main.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", () => {
+        //fetch the data as soon as the page has loaded
+        getXML();
+        // document
+        //   .getElementById("postData")
+        //   .addEventListener("submit", postData);
+      });
+    </script>
   </body>
 </html>
