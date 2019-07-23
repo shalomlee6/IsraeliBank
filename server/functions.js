@@ -47,15 +47,20 @@ function showHints(name) {
       } else {
         parser.parseString(data, function(error, result) {
           if (!error) {
-            var bank = "";
-            let size = JSON.stringify(result).length;
-            console.log(size);
-            console.log(result.getElementsByTagName);
-            for (var i = 0; i < 1; i++) {
-              if (!bankNames.includes(result.BRANCHES.BRANCH[i].Bank_Name[0])) {
-                bankNames.push(result.BRANCHES.BRANCH[i].Bank_Name[0]);
+            let bankNames = [];
+            let arr = result.BRANCHES.BRANCH;
+            for (var i = 0; i < arr.length; i++) {
+              // console.log(JSON.stringify(arr[i].Bank_Name) );
+              if(!bankNames.includes(JSON.stringify(arr[i].Bank_Name)) && JSON.stringify(arr[i].Bank_Name) != null){
+                bankNames.push(JSON.stringify(arr[i].Bank_Name));
                 console.log(bankNames[i]);
+                console.log("\n")  
               }
+                          
+              // if (!bankNames.includes(result.BRANCHES.BRANCH[i].Bank_Name[0])) {
+              //   bankNames.push(result.BRANCHES.BRANCH[i].Bank_Name[0]);
+              //   console.log(bankNames[i]);
+              // }
             }
           }
         });
