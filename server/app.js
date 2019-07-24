@@ -18,29 +18,39 @@ app.use(function(req, res, next) {
 
 //homepage route
 app.get("/api", (req, res) => {
-  //TODO => get XML and send to the client
+  //TODO => get XML file and save
   func.getXML();
-  //ToDO => Send data to client
+  //ToDO => get XML Data
+  func.getXMLData();
 });
 
 //Three endpoints
 //First endpoint get bank names
 app.post("/api/bank", (req, res) => {
   console.log(req.body.id);
-  func.showHints(req.body.id);
-  res.json(req.body);
+  let names = func.showHints(req.body.id);
+  res.json(names);
 });
 
-//Second endpoint get branch numbers according to bank name/number
-app.get("/api/branch/:bankNum/:bankName", (req, res) => {
-  res.send(req.params.bankNum);
-  res.send(req.params.bankName);
+//Second endpoint get branch numbers according to bank name
+app.post("/api/branch", (req, res) => {
+  console.log(req.body.bank);
+  let branchNames = func.getBranchNames(req.body.bank);
+  res.json(branchNames);
+  
 });
 
-//Thired endpoint get all the information regarding Banks according to bank name and branch number
-app.get("/api/banks/:bankName&:branchNum", (req, res) => {
-  res.send(req.params.name);
-  res.send(req.params.branchNum);
+//Thired endpoint get all the information regarding Banks according to` bank name and branch number
+app.post("/api/bank/branch", (req, res) => {
+  global.res = res;
+  func.getData(req.body,function(data){
+    res = global.res;
+    res.json(data);
+    console.log(data);
+    
+  });
+
+  
 });
 
 app.listen(port, () => {

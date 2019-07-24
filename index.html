@@ -6,7 +6,6 @@
     <title>Israeli Bank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </head>
   <body>
     <h1>Welcome To Israeli Bank System</h1>
@@ -19,11 +18,26 @@
         type="text"
         size="20"
         name="bank"
+        list="hintlist"
         onkeyup="showHint(this.value)"
       />
-      <button id="submitbtn" type="submit">Submit</button>
-    </form>
+      <datalist id="hintlist"></datalist>
+      <h2>Branch Name:</h2>
+      <input
+        id="branchInput"
+        type="text"
+        size="20"
+        name="branch"
+        list="branchlist"
+        onclick="showBranch()"
+      />
+      <datalist id="branchlist"></datalist>
 
+      <button id="submitbtn" type="submit" onclick="getIsraeliBankData()">Submit</button>
+    </form>
+    <div id="output">
+
+    </div>
     <script src="./js/main.js"></script>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", () => {
