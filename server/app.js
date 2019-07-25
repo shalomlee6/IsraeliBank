@@ -42,12 +42,12 @@ app.post("/api/branch", (req, res) => {
 
 //Thired endpoint get all the information regarding Banks according to` bank name and branch number
 app.post("/api/bank/branch", (req, res) => {
+
   global.res = res;
   func.getData(req.body,function(data){
     res = global.res;
     res.json(data);
     console.log(data);
-    
   });
 
   

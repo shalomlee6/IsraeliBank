@@ -10,38 +10,57 @@
   <body>
     <h1>Welcome To Israeli Bank System</h1>
     <hr />
+    <div class="wrapper">
+      <form>
+        <h2>Bank Name:</h2>
+        <input
+          id="bankInput"
+          type="text"
+          size="40"
+          name="bank"
+          list="hintlist"
+          onkeyup="showHint(this.value)"
+        />
+        <datalist id="hintlist"></datalist>
+        <h2>Branch Name:</h2>
+        <input
+          id="branchInput"
+          type="text"
+          size="30"
+          name="branch"
+          list="branchlist"
+          onclick="showBranch()"
+        />
+        <datalist id="branchlist"></datalist>
 
-    <form>
-      <h2>Bank Name:</h2>
-      <input
-        id="bankInput"
-        type="text"
-        size="20"
-        name="bank"
-        list="hintlist"
-        onkeyup="showHint(this.value)"
-      />
-      <datalist id="hintlist"></datalist>
-      <h2>Branch Name:</h2>
-      <input
-        id="branchInput"
-        type="text"
-        size="20"
-        name="branch"
-        list="branchlist"
-        onclick="showBranch()"
-      />
-      <datalist id="branchlist"></datalist>
-
-      <button id="submitbtn" type="submit" onclick="getIsraeliBankData()">Submit</button>
-    </form>
+        <button id="submitbtn" type="submit" onclick="getIsraeliBankData();return false">Submit</button>
+      </form>
+    </div>
+      
     <div id="output">
+      <table id="output-data">
+        <tr>
+          <th>Bank Number</th>
+          <th>Branch Name</th>
+          <th>Branch Address</th>
+          <th>Zip Code</th>
+          <th>PO Box</th>
+          <th>Telephone Number</th>
+          <th>Fax Number</th>
+          <th>Toll Free Number</th>
+          <th>Handicap Access</th>
+          <th>Day Closed</th>
+        </tr>
+        <tr id="output-data">
 
+        </tr>
+      </table>
     </div>
     <script src="./js/main.js"></script>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("bankInput").value = "";
+
         //fetch the data as soon as the page has loaded
         getXML();
       });

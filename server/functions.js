@@ -5,6 +5,17 @@ const xml2js = require("xml2js");
 const parser = new xml2js.Parser();
 const path = "./server/xml/myfile.xml";
 
+
+
+async function main () {
+  const result = await readFileAsync('.gitignore')
+  return result
+}
+
+
+
+
+
 let url =
   "https://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/snifim_dnld_he.xml";
 

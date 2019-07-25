@@ -98,9 +98,13 @@ function getIsraeliBankData(){
         return res.json();
       })
       .then(data => {
-        showBankResult(data);
-        console.log(data);
+        // console.log(data);
         console.log(JSON.stringify(data) );
+        showBankResult(data);
+        // console.log(data);
+        // console.log(JSON.stringify(data) );
+      }).catch(err => {
+        console.log(err);
       });
   }
 
@@ -108,15 +112,50 @@ function getIsraeliBankData(){
 }
 
 function showBankResult(data){
-    let output = document.getElementById("output");
 
-    var child ;
+  let output = document.getElementById("output-data");
+  
+  let  bankNumber =  document.createElement("td");
+  bankNumber.innerHTML =     data.bankNumber;
+  output.appendChild(bankNumber);
 
-    data.forEach(element => {
-      child = document.createElement("DIV");
-      child.innerHTML = "<h4>" + data.bankName + "</h4>"
-      output.appendChild(child);
-    });
+  let  branchName = document.createElement("td");
+  branchName.innerHTML =     data.branchName;
+  output.appendChild(branchName);
+  
+  let  branchAddress =  document.createElement("td");
+  branchAddress.innerHTML =  data.branchAddress;
+  output.appendChild(branchAddress);
+
+  let  zipCode = document.createElement("td");       
+  zipCode.innerHTML =   data.zipCode;
+  output.appendChild(zipCode);
+
+  let  poBox  = document.createElement("td");
+  poBox.innerHTML =     data.poBox;
+  output.appendChild(poBox);
+  
+  let  telephone = document.createElement("td");     
+  telephone.innerHTML = data.telephone;
+  output.appendChild(telephone);
+
+  let  faxNum = document.createElement("td");        
+  faxNum.innerHTML = data.faxNum;
+  output.appendChild(faxNum);
+
+  let  tollFreeNum = document.createElement("td");    
+  tollFreeNum.innerHTML = data.tollFreeNum;
+  output.appendChild(tollFreeNum);
+
+  let  handicapAccess = document.createElement("td"); 
+  handicapAccess.innerHTML = data.handicapAccess;
+  output.appendChild(handicapAccess);
+
+  let  dayClosed = document.createElement("td");     
+  dayClosed.innerHTML = data.dayClosed;    
+  output.appendChild(dayClosed);
+
+  
 
 
 }

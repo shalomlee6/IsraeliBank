@@ -1,2 +1,38 @@
-.button{
+
+h1{
+    text-align: center;
 }
+
+form{
+    
+    text-align: center;
+
+}
+
+html{
+    
+    background-image: url("../assets/11.jpg");
+    background-repeat: no-repeat;
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    
+    background-size: cover;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
